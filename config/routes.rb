@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     registrations: "users/registrations"
   }
+
+  resources :user_courses, only: :index
+  resources :courses, only: :show
 end

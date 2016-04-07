@@ -11,3 +11,11 @@ en:
     sing_up: "Sign Up"
   account:
     create: "Create Account"
+  courses:
+    subjects: "subjects"
+    description: "Description"
+  user_courses:
+    all_courses: "All courses"
+    history: "Histories of Course"
+    users: "user"
+    in_course: "in course"
