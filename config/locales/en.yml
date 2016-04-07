@@ -11,6 +11,10 @@ en:
     sing_up: "Sign Up"
   account:
     create: "Create Account"
+    edit: "Edit Account"
+    settings: "Settings"
+    profile: "Profile"
+    string: "Account"
   courses:
     subjects: "subjects"
     description: "Description"
