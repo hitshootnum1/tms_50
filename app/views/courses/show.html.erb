@@ -7,9 +7,10 @@
       <%= pluralize @course.users.count, t("user_courses.users") %>
       <%= t "user_courses.in_course" %>
     </p><br>
-    <% @course.subjects.each do |subject| %>
+    <% @course.course_subjects.each do |course_subject| %>
       <li>
-        <%= link_to subject.name, "#", class: "btn btn-lg btn-default" %>
+        <%= link_to course_subject.subject.name, course_subject,
+          class: "btn btn-lg btn-default" %>
       </li>
     <% end %>
     <hr>

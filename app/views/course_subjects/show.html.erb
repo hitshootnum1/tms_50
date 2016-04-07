@@ -1,0 +1,51 @@
+<% provide :title, @course_subject.subject_name %>
+
+<div class="col-md-2">
+  <table class="table table-hover">
+    <tr>
+      <div class= "btn btn-primary btn-block">
+        <%= @course_subject.subject.name %>
+      </div>
+    </tr>
+  </table>
+</div>
+
+<div class="col-md-10">
+  <%= form_for @course_subject do |f| %>
+    <table class="table table-hover">
+      <% @tasks.each do |task| %>
+        <tr>
+          <td>
+            <%= task.name %>
+            <br/>
+          </td>
+          <td>
+            <% if @finished_tasks.include? task %>
+              <%= t "task.closed" %>
+            <% else %>
+              <%= t "task.open" %>
+            <% end %>
+            <br/>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= f.submit t("subject.update"), class: "btn btn-lg btn-primary" %>
+  <% end %>
+
+  <div class="col-md-12">
+    <div class="col-md-4 col-md-offset-4">
+      <%= link_to t("finish"), "#",
+        class: "btn btn-lg btn-success btn-block" %>
+      <br/>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class= "col-md-12 panel panel-default">
+      <p>
+        <h4><%= @course_subject.subject_description %></h4><br>
+      </p>
+    </div>
+  </div>
+</div>

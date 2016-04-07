@@ -1,4 +1,5 @@
 en:
+  update: "Update"
   layouts:
     title: "TMS-50"
     welcome: "WELCOME TO TMS-50"
@@ -62,9 +63,19 @@ en:
     form: "This form contains "
     error: "error"
   subject:
+    update: "Update"
     number_is: "Number of Subjects: %{number}"
     name_is: "Name: %{name}"
     email_is: "Email: %{email}"
   date:
     start_is: "start date: %{start}"
-
+    update: "Update"
+    goto_subject: "Back to %{subject_name}"
+  views:
+    user:
+      subject_name: "Subject: %{subject_name}"
+      task_name: "Task: %{task_name}"
+      view_task: "View"
+  task:
+    closed: "Closed"
+    open: "Opening"
