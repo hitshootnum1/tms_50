@@ -1,0 +1,25 @@
+<%= provide :title, t("courses.all_courses") %>
+
+<div class="row">
+  <div class="col-md-5 panel panel-default">
+    <h3><%= t "courses.all_courses" %></h3>
+    <hr>
+    <%= paginate @courses %>
+    <ul class="list-unstyled">
+      <% @courses.each do |course| %>
+        <div class="col-md-6">
+          <li><%= course.name %></li>
+        </div>
+        <div class="col-md-6">
+          <li>
+            <%= link_to t("courses.edit"), "#" %>
+            <%= link_to t("courses.delete"), admin_course_path(course),
+              method: :delete, data: {confirm: t("courses.confirm")} %>
+          </li>
+        </div>
+        <br>
+      <% end %>
+    </ul>
+  </div>
+  <%= render "course_form" %>
+</div>

@@ -9,4 +9,9 @@ Rails.application.routes.draw do
 
   resources :user_courses, only: :index
   resources :courses, only: :show
+
+  namespace :admin do
+    root "courses#index"
+    resources :courses, only: [:index, :create, :destroy]
+  end
 end
