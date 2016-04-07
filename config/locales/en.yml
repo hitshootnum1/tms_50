@@ -20,4 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    title: "TMS-50"
+    welcome: "WELCOME TO TMS-50"
+    sign_up: "Sign up now!"
+    log_in: "Login"
+    home: "Home"
