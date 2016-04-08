@@ -1,10 +1,20 @@
-User.create! name: "Vinh", email: "vinh@gmail.com", admin: true,
-  password: "123456", password_confirmation: "123456"
-User.create! name: "Vinh2", email: "vinh2@gmail.com", admin: true,
-  password: "123456", password_confirmation: "123456"
+Role.create! name: "guest"
+Role.create! name: "supervisor"
+Role.create! name: "trainee"
 
-5.times do |n|
-  Course.create! name: "Course-#{n+1}", description: "Traning course"
+User.create! name: "Admin",
+  email: "admin@admin.com",
+  password: "foobar",
+  password_confirmation: "foobar",
+  admin: true,
+  role: Role.find_by(name: "supervisor")
+
+10.times do |n|
+  User.create! name: "User #{n}",
+  email: "user#{n}@user.com",
+  password: "foobar",
+  password_confirmation: "foobar",
+  role: Role.find_by(name: "trainee")
 end
 
 5.times do |n|

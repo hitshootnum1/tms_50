@@ -79,3 +79,13 @@ en:
   task:
     closed: "Closed"
     open: "Opening"
+  admin:
+    create_user:
+      success: "Create User Success"
+      error: "Create User Error"
+    update_user:
+      success: "Update User Success"
+      error: "Update User Error"
+    delete_user:
+      success: "Delete User Success"
+      error: "Delete User Error"
