@@ -1,6 +1,6 @@
 class Admin::CoursesController < ApplicationController
   before_action :load_all_courses, only: [:create, :destroy, :index]
-  before_action :load_new_course, only: [:create, :destroy, :index]
+  before_action :load_course, except: [:new, :edit, :show]
   before_action :load_all_subjects, only: [:create, :destroy, :index]
 
   def index
@@ -13,6 +13,16 @@ class Admin::CoursesController < ApplicationController
       redirect_to :back
     else
       flash.now[:danger] = t "courses.create_error"
+      render :index
+    end
+  end
+
+  def update
+    if @course.update_attributes course_params
+      flash[:success] = t "courses.update_success"
+      redirect_to :back
+    else
+      flash[:danger] = t "courses.update_error"
       render :index
     end
   end
@@ -38,8 +48,8 @@ class Admin::CoursesController < ApplicationController
     @courses = Course.all.page params[:page]
   end
 
-  def load_new_course
-    @course = Course.new
+  def load_course
+    @course = params[:id].nil? ? Course.new : Course.find_by(id: params[:id])
   end
 
   def load_all_subjects

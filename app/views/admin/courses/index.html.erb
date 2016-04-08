@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-6">
           <li>
-            <%= link_to t("courses.edit"), "#" %>
+            <%= link_to t("courses.edit"), admin_courses_path(id: course) %>
             <%= link_to t("courses.delete"), admin_course_path(course),
               method: :delete, data: {confirm: t("courses.confirm")} %>
           </li>
