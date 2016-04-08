@@ -10,7 +10,7 @@
     <p><%= f.label :description, t("subjects.description") %></p>
     <p><%= f.text_area :description, class: "form-control" %><p>
     <%= f.fields_for :tasks do |builder| %>
-      <%= render "subject_task_fields", f: builder %>
+      <%= render "task_fields", f: builder %>
     <% end %>
     <p>
       <%= link_to_add_fields t("subjects.add_field"), f, :tasks %>
