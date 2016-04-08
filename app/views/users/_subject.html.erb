@@ -1,0 +1,21 @@
+<div class="row">
+  <ol>
+    <li>
+      <div class="row">
+        <div class="col-md-8">
+          <strong><%= user_subject.course_subject.subject.name %></strong>
+          <%= t "date.start_is", start: user_subject.created_at %>
+        </div>
+        <div class="col-md-3">
+          <%= show_status user_subject %>
+        </div>
+      </div>
+      <% user_subject.course_subject.course_subject_tasks.each do
+        |subject_task| %>
+        <%= render "task", subject_task: subject_task,
+          user_subject: user_subject,
+          user_task: find_user_task(user_subject, subject_task) %>
+      <% end %>
+    </li>
+  </ol>
+</div>

@@ -1,0 +1,19 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h4><%= t "name_is", name: @user.name %></h4>
+    <h4><%= t "email_is", email: @user.email %></h4>
+    <% if @course %>
+      <p>
+        <strong><%= t "courses.name_is", name: @course.name %> </strong><br>
+        <strong><%= t "date.start_is", start: @course.start_date %></strong>
+      </p>
+      <h4>
+        <%= t "subject.number_is", number: @course.course_subjects.count %>
+      </h4>
+      <% @user.user_subjects.each do |user_subject| %>
+        <%= render "subject", user_subject: user_subject %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
