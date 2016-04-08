@@ -31,6 +31,8 @@ en:
     subject: "Subject"
     add_field: "Add course subject"
     remove: "Remove"
+    update_success: "Course updated!"
+    update_error: "Update error!"
   user_courses:
     all_courses: "All courses"
     history: "Histories of Course"
