@@ -1,0 +1,25 @@
+<%= provide :title, t("subjects.all_subjects") %>
+
+<div class="row">
+  <div class="col-md-5 panel panel-default">
+    <h3><%= t "subjects.all_subjects" %></h3>
+    <hr>
+    <%= paginate @subjects %>
+    <ul class="list-unstyled">
+      <% @subjects.each do |subject| %>
+        <div class="col-md-6">
+          <li><%= subject.name %></li>
+        </div>
+        <div class="col-md-6">
+          <li>
+            <%= link_to t("subjects.edit"), admin_subjects_path(id: subject) %>
+            <%= link_to t("subjects.delete"), "#",
+              method: :delete, data: {confirm: t("subjects.confirm")} %>
+          </li>
+        </div>
+        <br>
+      <% end %>
+    </ul>
+  </div>
+  <%= render "subject_form" %>
+</div>
