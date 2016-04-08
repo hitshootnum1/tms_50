@@ -48,6 +48,12 @@ en:
     update_error: "Update error!"
     name_is: "Course name: %{name}"
   subjects:
+    finish: "Finish"
+    open: "Open"
+    status: "Status: %{status}"
+    finish_error: "Subject not finished because system error"
+    finish_success: "Subject has finished"
+    all_tasks_must_closed: "Subject not finished because all tasks must be closed"
     all_subjects: "All subjects"
     edit: "Edit"
     delete: "Delete"
@@ -76,6 +82,7 @@ en:
     error: "error"
   subject:
     update: "Update"
+    finish: "Finish"
     number_is: "Number of Subjects: %{number}"
     name_is: "Name: %{name}"
     email_is: "Email: %{email}"
@@ -91,3 +98,6 @@ en:
   task:
     closed: "Closed"
     open: "Opening"
+  user_tasks:
+    all_tasks_closed: "All tasks must be closed"
+    update_success: "Update successfully"
