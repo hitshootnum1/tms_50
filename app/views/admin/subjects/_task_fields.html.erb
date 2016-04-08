@@ -1,0 +1,15 @@
+<fieldset>
+  <p>
+    <strong><%= t "subjects.task" %></strong>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to t("subjects.remove"), "#", class: "remove_fields" %>
+  </p>
+  <div class="col-md-12">
+    <p><%= f.label :name, t("subjects.task_name") %></p>
+    <p><%= f.text_field :name, class: "form-control" %></p>
+    <p><%= f.label :description, t("subjects.description") %></p>
+    <p><%= f.text_area :description, class: "form-control" %></p>
+    <%= f.hidden_field :modify, value: false %>
+    <br>
+  </div>
+</fieldset>
