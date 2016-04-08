@@ -46,9 +46,13 @@ en:
     submit: "Submit"
     task_name: "Task name"
     remove: "Remove"
-    task: "Task"
+    task: "Task "
     create_success: "Subject created!"
     create_error: "Create error!"
+    delete_success: "Subject deleted!"
+    delete_error: "Delete error"
+    update_success: "Subject updated!"
+    update_error: "Update error!"
   user_courses:
     all_courses: "All courses"
     history: "Histories of Course"
@@ -59,8 +63,8 @@ en:
     error: "error"
   subject:
     number_is: "Number of Subjects: %{number}"
-  name_is: "Name: %{name}"
-  email_is: "Email: %{email}"
+    name_is: "Name: %{name}"
+    email_is: "Email: %{email}"
   date:
     start_is: "start date: %{start}"
 

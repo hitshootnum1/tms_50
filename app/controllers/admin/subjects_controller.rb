@@ -1,6 +1,6 @@
 class Admin::SubjectsController < ApplicationController
-  before_action :load_all_subjects, only: [:index, :create]
-  before_action :load_subject, only: [:index, :create]
+  before_action :load_all_subjects, only: [:index, :create, :destroy]
+  before_action :load_subject, except: [:new, :edit, :show]
 
   def index
   end
@@ -16,6 +16,26 @@ class Admin::SubjectsController < ApplicationController
     end
   end
 
+  def update
+    if @subject.update_attributes subject_params
+      flash[:success] = t "subjects.update_success"
+      redirect_to :back
+    else
+      flash.now[:danger] = t "subjects.update_error"
+      render :index
+    end
+  end
+
+  def destroy
+    if @subject.destroy
+      flash[:success] = t "subjects.delete_success"
+      redirect_to admin_subjects_path
+    else
+      flash.now[:danger] = t "subjects.delete_error"
+      render :index
+    end
+  end
+
   private
   def subject_params
     params.require(:subject).permit :name, :description,
@@ -27,6 +47,10 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def load_subject
-    @subject = Subject.new
+    if params[:id].nil?
+      @subject = Subject.new
+    else
+      @subject = Subject.find_by(id: params[:id])
+    end
   end
 end
