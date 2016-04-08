@@ -33,6 +33,7 @@ en:
     remove: "Remove"
     update_success: "Course updated!"
     update_error: "Update error!"
+    name_is: "Course name: %{name}"
   user_courses:
     all_courses: "All courses"
     history: "Histories of Course"
@@ -41,3 +42,10 @@ en:
   shared:
     form: "This form contains "
     error: "error"
+  subject:
+    number_is: "Number of Subjects: %{number}"
+  name_is: "Name: %{name}"
+  email_is: "Email: %{email}"
+  date:
+    start_is: "start date: %{start}"
+

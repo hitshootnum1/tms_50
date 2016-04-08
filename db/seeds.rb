@@ -1,21 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create! name: "Vinh", email: "vinh@gmail.com", admin: true,
-  password: "123456", password_confirmation: "123456"
-5.times do |n|
+User.create! name: "Admin",
+  email: "admin@admin.com",
+  password: "foobar",
+  password_confirmation: "foobar",
+  admin: true
+
+10.times do |n|
+  User.create! name: "User #{n}",
+  email: "user#{n}@user.com",
+  password: "foobar",
+  password_confirmation: "foobar"
+end
+
+2.times do |n|
   Course.create! name: "Training-#{n+1}", description: "Traning course"
 end
-3.times do |n|
-  UserCourse.create! user_id: 1, course_id: n+1, status: false
-end
-5.times do |n|
+
+UserCourse.create! user_id: 1, course_id: 1, status: true
+
+10.times do |n|
   Subject.create! name: "Subject-#{n+1}"
 end
+
+10.times do |n|
+  Task.create! subject_id: 1, name: "Task-#{n+1}", modify: false
+end
+
 5.times do |n|
   CourseSubject.create! course_id: 1, subject_id: n+1
+  UserSubject.create! user_id: 1, course_subject_id: n+1, status: true
+end
+
+10.times do |n|
+  CourseSubjectTask.create! course_subject_id: 1, task_id: n+1
+  UserTask.create! user_subject_id: 1, course_subject_task_id: n+1, status: true
 end

@@ -16,4 +16,12 @@ module ApplicationHelper
     end
     link_to name, "#", class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")}
   end
+
+  def find_user_task user_subject, course_subject_task
+    user_subject.user_tasks.find_by course_subject_task_id: course_subject_task.id
+  end
+
+  def show_status object
+    object.status.nil? ? Settings.status.wait : Settings.status.send("#{object.status}")
+  end
 end

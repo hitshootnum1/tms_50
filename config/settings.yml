@@ -1,0 +1,4 @@
+status:
+  wait: "Joined"
+  true: "Started"
+  false: "Finished"
