@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :user_courses, only: :index
   resources :courses, only: :show
+  resources :course_subjects, only: :show
 
   namespace :admin do
     root "courses#index"

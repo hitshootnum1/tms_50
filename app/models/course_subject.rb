@@ -6,4 +6,6 @@ class CourseSubject < ActiveRecord::Base
 
   belongs_to :course
   belongs_to :subject
+
+  delegate :name, :description, to: :subject, prefix: true
 end
