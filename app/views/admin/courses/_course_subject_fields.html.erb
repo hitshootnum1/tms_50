@@ -1,0 +1,15 @@
+<fieldset>
+  <p><%= f.label :subject_id, t("courses.subject") %></p>
+  <p>
+    <div class="col-md-10">
+      <%= f.select :subject_id, @subjects.collect {|subject| [subject.name,
+        subject.id]}, {include_blank: false}, {class: "form-control"} %>
+    </div>
+    <div class="">
+      <%= f.hidden_field :_destroy %>
+      <%= link_to t("courses.remove"), "#",
+        class: "remove_fields btn btn-default" %>
+    </div>
+  </p>
+  <br>
+</fieldset>
