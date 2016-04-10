@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
     flash[:error] = t "not_authorized"
     redirect_to root_url
   end
+
+  def current_ability
+    namespace = controller_path.split("/").first
+    Ability.new current_user, namespace
+  end
 end
