@@ -1,5 +1,6 @@
 en:
   update: "Update"
+  not_authorized: "You are not authorized to perform this action"
   layouts:
     title: "TMS-50"
     welcome: "WELCOME TO TMS-50"
@@ -10,6 +11,17 @@ en:
   user:
     remember_me: "Remember me"
     sing_up: "Sign Up"
+    all: "All Users"
+    new: "New User"
+    edit: "Edit User"
+    delete: "Delete User"
+    confirm: "Are you sure?"
+    create_success: "Create New User Success"
+    create_error: "Create New User Error"
+    delete_success: "Delete User Success"
+    delete_error: "Delete User Error"
+    update_success: "Update User Success"
+    update_error: "Update User Error"
   account:
     create: "Create Account"
     edit: "Edit Account"

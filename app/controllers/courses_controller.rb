@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
+
+  load_and_authorize_resource
+
   def show
-    @course = Course.find_by id: params[:id]
   end
 end

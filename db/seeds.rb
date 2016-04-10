@@ -1,7 +1,9 @@
-User.create! name: "Vinh", email: "vinh@gmail.com", admin: true,
-  password: "123456", password_confirmation: "123456"
+User.create! name: "admin", email: "admin@admin.com", admin: true,
+  password: "foobar", password_confirmation: "foobar", role: "supervisor"
 User.create! name: "Vinh2", email: "vinh2@gmail.com", admin: true,
   password: "123456", password_confirmation: "123456"
+User.create! name: "user", email: "user@user.com", admin: true, role: "trainee",
+  password: "foobar", password_confirmation: "foobar"
 
 5.times do |n|
   Course.create! name: "Course-#{n+1}", description: "Traning course"
