@@ -1,8 +1,8 @@
 User.create! name: "admin", email: "admin@admin.com", admin: true,
-  password: "foobar", password_confirmation: "foobar", role: "supervisor"
+  password: "foobar", password_confirmation: "foobar", role: 1
 User.create! name: "Vinh2", email: "vinh2@gmail.com", admin: true,
-  password: "123456", password_confirmation: "123456"
-User.create! name: "user", email: "user@user.com", admin: true, role: "trainee",
+  password: "123456", password_confirmation: "123456", role: 1
+User.create! name: "user", email: "user@user.com", admin: true, role: 0,
   password: "foobar", password_confirmation: "foobar"
 
 5.times do |n|
@@ -34,10 +34,10 @@ end
 end
 
 5.times do |n|
-  UserSubject.create! user_id: 1, course_subject_id: n+1
+  UserSubject.create! user_id: 1, course_subject_id: n+1, status: "Started"
 end
 5.times do |n|
-  UserSubject.create! user_id: 2, course_subject_id: n+1
+  UserSubject.create! user_id: 2, course_subject_id: n+1, status: "Started"
 end
 
 3.times do |n|
