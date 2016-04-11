@@ -29,7 +29,7 @@ en:
     profile: "Profile"
     string: "Account"
   courses:
-    subjects: "subjects"
+    subjects: "Subjects"
     description: "Description"
     all_courses: "All courses"
     edit: "Edit"
@@ -47,6 +47,10 @@ en:
     update_success: "Course updated!"
     update_error: "Update error!"
     name_is: "Course name: %{name}"
+    assign_trainee: "Assign trainee"
+    assign: "Assign"
+    count: "Users in this course: "
+    users: "user"
   subjects:
     finish: "Finish"
     open: "Open"
@@ -72,11 +76,6 @@ en:
     delete_error: "Delete error"
     update_success: "Subject updated!"
     update_error: "Update error!"
-  user_courses:
-    all_courses: "All courses"
-    history: "Histories of Course"
-    users: "user"
-    in_course: "in course"
   shared:
     form: "This form contains "
     error: "error"

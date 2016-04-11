@@ -8,13 +8,13 @@
     <p><%= f.label :name, t("courses.name") %></p>
     <p><%= f.text_field :name, class: "form-control" %></p>
     <p><%= f.label :description, t("courses.description") %></p>
-    <p><%= f.text_area :description, class: "form-control" %><p>
-    <%= f.fields_for :course_subjects do |builder| %>
-      <%= render "course_subject_fields", f: builder %>
+    <p><%= f.text_area :description, class: "form-control" %></p>
+    <p><%= f.label :subjects, t("courses.subjects") %></p>
+    <%= f.collection_check_boxes :subject_ids, @subjects, :id, :name do |b| %>
+      <p class="col-md-offset-1">
+        <%= b.label {b.check_box + " " + b.text} %>
+      </p>
     <% end %>
-    <p>
-      <%= link_to_add_fields t("courses.add_field"), f, :course_subjects %>
-    </p>
     <%= f.submit t("courses.submit"),
       class: "btn btn-primary col-md-4 col-md-offset-4" %>
   <% end %>
