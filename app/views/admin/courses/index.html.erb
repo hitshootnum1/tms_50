@@ -8,11 +8,12 @@
     <ul class="list-unstyled">
       <% @courses.each do |course| %>
         <div class="col-md-6">
-          <li><%= course.name %></li>
+          <li><%= link_to course.name, [:admin, course] %></li>
         </div>
         <div class="col-md-6">
           <li>
-            <%= link_to t("courses.edit"), admin_courses_path(id: course) %>
+            <%= link_to t("courses.edit"), edit_admin_course_path(course),
+              remote: true %>
             <%= link_to t("courses.delete"), admin_course_path(course),
               method: :delete, data: {confirm: t("courses.confirm")} %>
           </li>
@@ -21,5 +22,7 @@
       <% end %>
     </ul>
   </div>
-  <%= render "course_form" %>
+  <div id="course_form">
+    <%= render "course_form" %>
+  </div>
 </div>

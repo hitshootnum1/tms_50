@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "courses#index"
-    resources :courses, except: [:new, :edit, :show]
+    resources :courses, except: :new
     resources :subjects, except: [:new, :edit, :show]
     resources :users, except: [:new, :edit, :show]
   end
