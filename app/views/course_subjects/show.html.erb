@@ -10,57 +10,23 @@
       </div>
     </tr>
     <tr>
-      <%= t("subjects.status", status: @user_subject.status) %>
+      <div class="subject-status">
+        <%= render "subject_status" %>
+      </div>
     </tr>
   </table>
 </div>
 
 <div class="col-md-10">
-  <%= form_tag user_subject_path do %>
-    <table class="table table-hover">
-      <% @tasks.each do |task| %>
-        <tr>
-          <td>
-            <%= task.name %>
-            <br/>
-          </td>
-          <td>
-            <% if @finished_tasks.include? task %>
-              <%= t "task.closed" %>
-            <% else %>
-              <%= t "task.open" %>
-            <% end %>
-            <br/>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-    <div class="col-md-12">
-      <div class="col-md-4 col-md-offset-4">
-        <p>
-          <%= submit_tag t("subject.update"), class: "btn btn-lg btn-primary btn-block" %>
-        </p>
-      </div>
-    </div>
-  <% end %>
+  <div class="update-tasks">
+    <%= render "update_tasks" %>
+  </div>
 
-  <%= form_for @user_subject do |f| %>
-    <div class="col-md-12">
-      <%= f.hidden_field :status, value: "Finished" %>
-      <div class="col-md-4 col-md-offset-4">
-        <p>
-          <%= f.submit t("subject.finish"),
-            class: "btn btn-lg btn-success btn-block" %>
-        </p>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="col-md-12">
-    <div class= "col-md-12 panel panel-default">
-      <p>
-        <h4><%= @course_subject.subject_description %></h4><br>
-      </p>
-    </div>
+</div>
+<div class="col-md-10 col-md-offset-1">
+  <div class= "col-md-12 panel panel-default">
+    <p>
+      <h4><%= @course_subject.subject_description %></h4><br>
+    </p>
   </div>
 </div>

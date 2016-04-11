@@ -98,5 +98,5 @@ en:
     closed: "Closed"
     open: "Opening"
   user_tasks:
-    all_tasks_closed: "All tasks must be closed"
+    all_tasks_closed: "All tasks has closed"
     update_success: "Update successfully"

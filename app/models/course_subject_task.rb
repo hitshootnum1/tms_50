@@ -4,4 +4,10 @@ class CourseSubjectTask < ActiveRecord::Base
 
   belongs_to :course_subject
   belongs_to :task
+
+  delegate :name, to: :task, prefix: true
+
+  def name_with_initial
+    "#{task.name}"
+  end
 end
