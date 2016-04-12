@@ -14,8 +14,13 @@
     <h3><%= t "courses.subjects" %></h3>
     <hr>
     <ul class="list-unstyled">
-      <% @course.subjects.each do |subject| %>
-        <li class="col-md-12"><%= subject.name %></li>
+      <% @course.course_subjects.each do |course_subject| %>
+        <li class="col-md-12">
+          <%= course_subject.subject_name %>
+          <%= link_to t("course_subject.custom_tasks"),
+            edit_admin_course_subject_path(course_subject),
+            class: "btn btn-success btn-xs" %>
+        </li>
       <% end %>
     </ul>
   </div>

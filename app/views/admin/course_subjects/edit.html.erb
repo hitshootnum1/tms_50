@@ -1,0 +1,18 @@
+<%= provide :title, @course_subject.course_name %>
+
+<div class="col-md-3 panel panel-default">
+  <h3><%= @course_subject.course_name %></h3>
+  <hr>
+  <h3><%= @course_subject.subject_name %></h3>
+</div>
+
+<div class="col-md-8 col-md-offset-1 panel panel-default">
+  <h3>
+    <%= t("course_subject.all_tasks",
+      subject_name: @course_subject.subject_name) %>
+  </h3>
+  <hr>
+  <div class="tasks-form">
+    <%= render "tasks_form" %>
+  </div>
+</div>

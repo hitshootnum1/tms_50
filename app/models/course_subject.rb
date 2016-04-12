@@ -8,4 +8,7 @@ class CourseSubject < ActiveRecord::Base
   belongs_to :subject
 
   delegate :name, :description, to: :subject, prefix: true
+  delegate :name, :description, to: :course, prefix: true
+
+  accepts_nested_attributes_for :course_subject_tasks, allow_destroy: true
 end
