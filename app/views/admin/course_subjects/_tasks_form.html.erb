@@ -1,0 +1,13 @@
+<%= form_for [:admin, @course_subject] do |f| %>
+  <ul class="list-unstyled col-md-offset-1">
+    <%= f.collection_check_boxes :task_ids, @course_subject.subject.tasks,
+      :id, :name do |b| %>
+      <li><%= b.label {b.check_box + b.text} %></li>
+    <% end %>
+  </ul>
+  <div class="col-md-4 col-md-offset-4">
+    <%= f.submit t("course_subject.update"),
+      class: "btn btn-block btn-primary" %>
+    <h1></h1>
+  </div>
+<% end %>

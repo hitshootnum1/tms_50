@@ -52,6 +52,7 @@ en:
     count: "Users in this course: "
     users: "user"
   subjects:
+    custom_tasks: "Custom tasks"
     finish: "Finish"
     open: "Open"
     status: "Status: %{status}"
@@ -80,6 +81,7 @@ en:
     form: "This form contains "
     error: "error"
   subject:
+    tasks: "Tasks"
     update: "Update"
     finish: "Finish"
     number_is: "Number of Subjects: %{number}"
@@ -100,3 +102,8 @@ en:
   user_tasks:
     all_tasks_closed: "All tasks has closed"
     update_success: "Update successfully"
+  course_subject:
+    all_tasks: "All tasks in %{subject_name}"
+    update: "Update"
+    updated: "Update successfully"
+    update_error: "Update error"
