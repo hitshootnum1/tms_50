@@ -1,6 +1,9 @@
 en:
   update: "Update"
   not_authorized: "You are not authorized to perform this action"
+  summary: "Summary"
+  finished: "Finished"
+  not_finised: "Not Finished"
   layouts:
     title: "TMS-50"
     welcome: "WELCOME TO TMS-50"
@@ -9,6 +12,7 @@ en:
     log_out: "Logout"
     home: "Home"
   user:
+    string: "User"
     remember_me: "Remember me"
     sing_up: "Sign Up"
     all: "All Users"

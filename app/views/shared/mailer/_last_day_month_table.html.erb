@@ -1,0 +1,16 @@
+<% if user.user_subjects.any? %>
+  <% user.user_subjects.each do |user_subject| %>
+    <% if user_subject.course_subject.cs_tasks.any? %>
+      <% user_subject.course_subject.cs_tasks.each do |cs_task| %>
+        <td>
+          <%= find_user_task(user_subject, cs_task) ? t("finised") : t("
+            not_finised") %>
+        </td>
+      <% end%>
+    <% else %>
+      <td></td>
+    <% end %>
+  <% end %>
+<% else %>
+  <td></td>
+<% end %>
