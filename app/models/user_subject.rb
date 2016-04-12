@@ -4,4 +4,10 @@ class UserSubject < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :course_subject
+
+  accepts_nested_attributes_for :user_tasks, allow_destroy: true
+
+  def not_finish?
+    self.status != "Finished"
+  end
 end
