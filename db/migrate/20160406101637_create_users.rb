@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :avatar
       t.boolean :admin
+      t.boolean :start_course, default: false
 
       t.timestamps null: false
     end

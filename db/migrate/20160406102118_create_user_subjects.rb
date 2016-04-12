@@ -1,7 +1,7 @@
 class CreateUserSubjects < ActiveRecord::Migration
   def change
     create_table :user_subjects do |t|
-      t.string :status
+      t.integer :status, default: :ready
       t.references :user, index: true, foreign_key: true
       t.references :course_subject, index: true, foreign_key: true
 

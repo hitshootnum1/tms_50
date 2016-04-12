@@ -7,7 +7,5 @@ class UserSubject < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_tasks, allow_destroy: true
 
-  def not_finish?
-    self.status != "Finished"
-  end
+  enum status: [:ready, :started, :finished]
 end

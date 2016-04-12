@@ -3,6 +3,7 @@ class CreateCourses < ActiveRecord::Migration
     create_table :courses do |t|
       t.string :name
       t.string :description
+      t.integer :status, default: :ready
       t.datetime :start_date
       t.datetime :end_date
 

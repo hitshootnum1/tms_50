@@ -12,4 +12,6 @@ class CourseSubject < ActiveRecord::Base
   delegate :name, :description, to: :course, prefix: true
 
   accepts_nested_attributes_for :course_subject_tasks, allow_destroy: true
+
+  enum status: [:ready, :started, :finished]
 end

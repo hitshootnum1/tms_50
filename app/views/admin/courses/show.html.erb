@@ -5,6 +5,18 @@
     <h3><%= @course.name %></h3>
     <hr>
     <p>
+      <% if @course.started? %>
+        <strong><%= t "courses.started" %></strong>
+      <% else %>
+        <p>
+          <%= form_for [:admin, @course] do |f| %>
+            <%= f.hidden_field :status, value: :started %>
+            <%= f.submit t("courses.start"), class: "btn btn-default" %>
+          <% end %>
+        </p>
+      <% end %>
+    </p>
+    <p>
       <%= t "courses.count" %>
       <%= pluralize @course.users.count, t("courses.users") %>
     </p>
@@ -15,12 +27,18 @@
     <hr>
     <ul class="list-unstyled">
       <% @course.course_subjects.each do |course_subject| %>
-        <li class="col-md-12">
-          <%= course_subject.subject_name %>
-          <%= link_to t("course_subject.custom_tasks"),
-            edit_admin_course_subject_path(course_subject),
-            class: "btn btn-success btn-xs" %>
-        </li>
+        <li class="col-md-6"><%= course_subject.subject_name %></li>
+        <% if @course.started? && !course_subject.started? %>
+          <%= form_for [:admin, course_subject], method: :patch do |f| %>
+            <li class="col-md-6">
+              <%= f.hidden_field :status, value: :started %>
+              <%= f.submit t("courses.start_subject"),
+                class: "btn btn-default" %>
+            </li>
+          <% end %>
+        <% else %>
+          <li class="col-md-6"><%= t "courses.start_subject" %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>
