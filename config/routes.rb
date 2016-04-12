@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
 
   root "static_pages#home"
 
@@ -15,6 +16,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "courses#index"
+    authenticate :user, ->u{u.supervisor?} do
+      mount Sidekiq::Web => "/sidekiq"
+    end
     resources :courses, except: :new
     resources :subjects, except: [:new, :edit, :show]
     resources :users, except: :show

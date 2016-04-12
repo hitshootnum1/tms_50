@@ -19,6 +19,9 @@ gem "config"
 gem "jquery-turbolinks"
 gem "devise"
 gem "cancancan"
+gem "sidekiq"
+gem "whenever", require: false
+gem "sinatra", require: false
 
 group :development,:test do
   gem "pry"
