@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :activities, dependent: :destroy
   has_many :courses, through: :user_courses, dependent: :destroy
   has_many :course_subjects, through: :user_subjects, dependent: :destroy
+  has_many :created_courses, class_name: Course
+  has_many :user_tasks, through: :user_subjects
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable

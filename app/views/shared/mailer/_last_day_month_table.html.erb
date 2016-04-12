@@ -1,0 +1,15 @@
+<% user.user_subjects.each do |user_subject| %>
+  <td>
+    <table>
+      <tr>
+        <% user_subject.course_subject.cs_tasks.each do |cs_task| %>
+          <td>
+            <%= cs_task.task.name %>
+            <%= user_subject.user_tasks.find_by(course_subject_task_id:
+              cs_task.id) ? "finished" : "not finished" %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  </td>
+<% end %>

@@ -1,5 +1,6 @@
 class CourseSubject < ActiveRecord::Base
   has_many :course_subject_tasks, dependent: :destroy
+  has_many :cs_tasks, class_name: CourseSubjectTask
   has_many :user_subjects, dependent: :destroy
   has_many :users, through: :user_subjects, dependent: :destroy
   has_many :tasks, through: :course_subject_tasks, dependent: :destroy
