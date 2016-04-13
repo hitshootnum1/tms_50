@@ -5,3 +5,9 @@ status:
 email_subject:
   last_day_month: "Report trainee in course last day of month"
   two_days_finish_course: "Notify course will finish in two days"
+activities:
+  subject_update: "user_subject.update_task"
+  subject_finish: "user_subject.finish"
+  course_assign: "user_course.create"
+  course_start: "course.update"
+  course_finish: "course.finish"

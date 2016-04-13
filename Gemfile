@@ -24,6 +24,7 @@ gem "whenever", require: false
 gem "sinatra", require: false
 gem "delayed_job_active_record"
 gem "daemons"
+gem "public_activity"
 
 group :development,:test do
   gem "pry"

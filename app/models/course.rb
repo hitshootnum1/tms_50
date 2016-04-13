@@ -68,6 +68,7 @@ class Course < ActiveRecord::Base
     self.users.each do |user|
       user.update_attributes start_course: true unless user.start_course
     end
+  end
 
   private
   def send_email_notify_course_finish
