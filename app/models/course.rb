@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+
   before_update :init_user_subjects
   after_update :load_user_subjects
 
@@ -18,6 +19,8 @@ class Course < ActiveRecord::Base
   validates :name, presence: true
 
   enum status: [:ready, :started, :finished]
+
+  after_create :send_email_notify_course_finish
 
   def load_user_subjects
     if self.started?
@@ -65,5 +68,10 @@ class Course < ActiveRecord::Base
     self.users.each do |user|
       user.update_attributes start_course: true unless user.start_course
     end
+
+  private
+  def send_email_notify_course_finish
+    SupervisorMailer.delay(
+      run_at: Proc.new{self.end_date - 2.days}).notify_course_finish_in_two_days(self)
   end
 end

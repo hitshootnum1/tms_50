@@ -22,6 +22,8 @@ gem "cancancan"
 gem "sidekiq"
 gem "whenever", require: false
 gem "sinatra", require: false
+gem "delayed_job_active_record"
+gem "daemons"
 
 group :development,:test do
   gem "pry"
