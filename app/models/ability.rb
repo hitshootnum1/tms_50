@@ -10,6 +10,10 @@ class Ability
         if user.supervisor?
           can :manage, :all
         elsif user.trainee?
+          can :read, Course
+          can :read, Subject
+          can :read, CourseSubject
+          can :update, UserSubject
           can :read, UserCourse, user_id: user.id
           can :manage, User, id: user.id
           cannot :destroy, User

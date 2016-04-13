@@ -107,6 +107,7 @@ en:
     email_is: "Email: %{email}"
   date:
     start_is: "start date: %{start}"
+    end_is: "end date: %{end}"
     update: "Update"
     goto_subject: "Back to %{subject_name}"
   views:

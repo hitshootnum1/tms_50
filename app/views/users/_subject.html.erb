@@ -1,10 +1,12 @@
 <div class="row">
-  <ol>
+  <ol class="user-show-subject">
+    <hr>
+    <center>
+      <h4><%= user_subject.course_subject.subject.name %></h4>
+    </center>
     <li>
       <div class="row">
-        <div class="col-md-8">
-          <strong><%= user_subject.course_subject.subject.name %></strong>
-          <%= t "date.start_is", start: user_subject.created_at %>
+        <div class="col-md-3">
         </div>
         <div class="col-md-3">
           <%= show_status user_subject %>

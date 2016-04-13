@@ -4,5 +4,6 @@ class UsersController < ApplicationController
 
   def show
     @activities = PublicActivity::Activity.all
+    @course = Course.find_active_course @user.courses
   end
 end
