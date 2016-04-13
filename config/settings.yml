@@ -11,3 +11,4 @@ activities:
   course_assign: "user_course.create"
   course_start: "course.update"
   course_finish: "course.finish"
+  assign_to_course: "Trainee assigned to a course"

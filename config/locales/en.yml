@@ -128,3 +128,6 @@ en:
     removed: " which has since been removed"
     name: "Activities"
     time: "(%{time})"
+  mailer:
+    assign: "Assigned trainee to"
+    remove: "Removed trainee from"
