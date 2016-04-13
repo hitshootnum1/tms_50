@@ -9,6 +9,7 @@ class CreateActivities < ActiveRecord::Migration
       t.text    :parameters
       t.string  :content
       t.string  :target
+      t.integer :target_id
       t.belongs_to :recipient, :polymorphic => true
 
       t.timestamps

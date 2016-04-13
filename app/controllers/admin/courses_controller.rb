@@ -15,6 +15,7 @@ class Admin::CoursesController < ApplicationController
   def create
     @course = Course.new course_params
     if @course.save
+      create_activity
       flash[:success] = t "courses.create_success"
       redirect_to :back
     else
@@ -24,7 +25,13 @@ class Admin::CoursesController < ApplicationController
   end
 
   def update
+    @old_status = @course.status
+    @old_user_ids = []
+    @course.user_courses.each do |user_course|
+      @old_user_ids.push user_course.user_id
+    end
     if @course.update_attributes course_params
+      create_activity
       flash[:success] = t "courses.update_success"
       respond_to do |format|
         format.html {redirect_to :back}
@@ -54,5 +61,31 @@ class Admin::CoursesController < ApplicationController
 
   def load_all_subjects
     @subjects = Subject.all
+  end
+
+  def create_activity
+    if @old_status != @course.status
+      @course.create_activity :update_course, owner: current_user,
+        content: t("courses.status", status: @course.status),
+        target: @course.name, target_id: @course.id
+    else
+      if params[:course][:user_ids]
+        @new_user_ids = params[:course][:user_ids].map(&:to_i)
+        (@old_user_ids + @new_user_ids).uniq.each do |user_id|
+          content = if @old_user_ids.include?(user_id) && @new_user_ids.exclude?(user_id)
+            t("courses.removed")
+          elsif @old_user_ids.exclude?(user_id) && @new_user_ids.include?(user_id)
+            t("courses.joined")
+          else
+            nil
+          end
+          if content && user = User.find_by(id: user_id)
+            @course.create_activity :joined, owner: user,
+              content: content,
+              target: @course.name, target_id: @course.id
+          end
+        end
+      end
+    end
   end
 end

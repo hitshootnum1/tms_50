@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160413022811) do
     t.text     "parameters"
     t.string   "content"
     t.string   "target"
+    t.integer  "target_id"
     t.integer  "recipient_id"
     t.string   "recipient_type"
     t.datetime "created_at"

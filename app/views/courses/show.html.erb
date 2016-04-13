@@ -18,5 +18,9 @@
       <h3><%= t "courses.description" %></h3><br>
       <p><%= @course.description %></p>
     </aside>
+    <aside>
+      <h3><%= t "courses.activites" %></h3><br>
+      <%= render "course_activity" %>
+    </aside>
   </ul>
 </div>

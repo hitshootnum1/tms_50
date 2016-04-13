@@ -37,6 +37,7 @@ en:
     profile: "Profile"
     string: "Account"
   courses:
+    activities: "Course activities"
     status: "%{status} course"
     joined: "joined to course"
     removed: "removed from course"
