@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 20160412072653) do
     t.datetime "end_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "users_id"
+    t.integer  "user_id"
   end
 
-  add_index "courses", ["users_id"], name: "index_courses_on_users_id"
+  add_index "courses", ["user_id"], name: "index_courses_on_user_id"
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
