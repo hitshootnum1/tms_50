@@ -14,6 +14,9 @@ en:
     home: "Home"
   user:
     string: "User"
+    name: "Name: %{name}"
+    email: "Email: %{email}"
+    activities: "Activities"
     remember_me: "Remember me"
     sing_up: "Sign Up"
     all: "All Users"
@@ -34,6 +37,9 @@ en:
     profile: "Profile"
     string: "Account"
   courses:
+    status: "%{status} course"
+    joined: "joined to course"
+    removed: "removed from course"
     subjects: "Subjects"
     description: "Description"
     all_courses: "All courses"
@@ -60,6 +66,9 @@ en:
     start: "Start this course"
     start_subject: "Start"
   subjects:
+    start: "started subject"
+    updated_subject: " updated subject "
+    finished_subject: " finished subject "
     custom_tasks: "Custom tasks"
     finish: "Finish"
     open: "Open"
@@ -115,3 +124,7 @@ en:
     update: "Update"
     updated: "Update successfully"
     update_error: "Update error"
+  activities:
+    removed: " which has since been removed"
+    name: "Activities"
+    time: "(%{time})"
