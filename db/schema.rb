@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412072653) do
+ActiveRecord::Schema.define(version: 20160413022811) do
 
   create_table "activities", force: :cascade do |t|
     t.text     "action"
@@ -46,15 +46,31 @@ ActiveRecord::Schema.define(version: 20160412072653) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "status"
+    t.integer  "status",      default: 0
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
   end
 
   add_index "courses", ["user_id"], name: "index_courses_on_user_id"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name"

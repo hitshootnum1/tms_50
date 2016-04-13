@@ -4,6 +4,7 @@ en:
   summary: "Summary"
   finished: "Finished"
   not_finised: "Not Finished"
+  status_is: "Status is: %{status}"
   layouts:
     title: "TMS-50"
     welcome: "WELCOME TO TMS-50"
