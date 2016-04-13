@@ -17,6 +17,6 @@ class Admin::CourseSubjectsController < ApplicationController
   private
   def course_subject_params
     params.require(:course_subject).permit :id, :course_id, :subject_id,
-      task_ids: []
+      :status, task_ids: []
   end
 end

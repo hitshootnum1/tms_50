@@ -55,6 +55,9 @@ en:
     assign: "Assign"
     count: "Users in this course: "
     users: "user"
+    started: "This course has been started"
+    start: "Start this course"
+    start_subject: "Start"
   subjects:
     custom_tasks: "Custom tasks"
     finish: "Finish"

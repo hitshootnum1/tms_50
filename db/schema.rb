@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(version: 20160412072653) do
   add_index "course_subject_tasks", ["task_id"], name: "index_course_subject_tasks_on_task_id"
 
   create_table "course_subjects", force: :cascade do |t|
+    t.string   "status",     default: "Ready"
     t.integer  "course_id"
     t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "course_subjects", ["course_id"], name: "index_course_subjects_on_course_id"
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160412072653) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.integer  "status"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at",  null: false
@@ -74,7 +76,6 @@ ActiveRecord::Schema.define(version: 20160412072653) do
   add_index "tasks", ["subject_id"], name: "index_tasks_on_subject_id"
 
   create_table "user_courses", force: :cascade do |t|
-    t.boolean  "status"
     t.integer  "user_id"
     t.integer  "course_id"
     t.datetime "created_at", null: false
@@ -85,7 +86,7 @@ ActiveRecord::Schema.define(version: 20160412072653) do
   add_index "user_courses", ["user_id"], name: "index_user_courses_on_user_id"
 
   create_table "user_subjects", force: :cascade do |t|
-    t.string   "status"
+    t.integer  "status"
     t.integer  "user_id"
     t.integer  "course_subject_id"
     t.datetime "created_at",        null: false
@@ -111,13 +112,14 @@ ActiveRecord::Schema.define(version: 20160412072653) do
     t.string   "email"
     t.string   "avatar"
     t.boolean  "admin"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.boolean  "start_course",           default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
