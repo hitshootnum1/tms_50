@@ -27,6 +27,7 @@ gem "daemons"
 gem "public_activity"
 
 group :development,:test do
+  gem "factory_girl_rails"
   gem "pry"
   gem "sqlite3", "1.3.9"
   gem "byebug", "3.4.0"
