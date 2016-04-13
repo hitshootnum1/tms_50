@@ -26,6 +26,8 @@ gem "delayed_job_active_record"
 gem "daemons"
 
 group :development,:test do
+  gem "factory_girl_rails"
+  gem "faker", "1.4.2"
   gem "pry"
   gem "sqlite3", "1.3.9"
   gem "byebug", "3.4.0"

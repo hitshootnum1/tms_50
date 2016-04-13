@@ -68,10 +68,11 @@ class Course < ActiveRecord::Base
     self.users.each do |user|
       user.update_attributes start_course: true unless user.start_course
     end
+  end
 
   private
   def send_email_notify_course_finish
     SupervisorMailer.delay(
-      run_at: Proc.new{self.end_date - 2.days}).notify_course_finish_in_two_days(self)
+      run_at: Proc.new {self.end_date - 2.days}).notify_course_finish_in_two_days self
   end
 end
