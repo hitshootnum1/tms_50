@@ -132,6 +132,8 @@ en:
     update: "Update"
     updated: "Update successfully"
     update_error: "Update error"
+    started: "Subject started"
+    start_error: "Subject start error"
   activities:
     removed: " which has since been removed"
     name: "Activities"
