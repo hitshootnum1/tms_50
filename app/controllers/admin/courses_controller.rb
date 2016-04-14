@@ -14,6 +14,7 @@ class Admin::CoursesController < ApplicationController
 
   def create
     @course = Course.new course_params
+    @course.user = current_user
     if @course.save
       create_activity
       flash[:success] = t "courses.create_success"

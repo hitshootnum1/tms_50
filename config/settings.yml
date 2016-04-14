@@ -3,6 +3,7 @@ status:
   true: "Started"
   false: "Finished"
 email_subject:
+  last_day: "Daily report of trainee in course"
   last_day_month: "Report trainee in course last day of month"
   two_days_finish_course: "Notify course will finish in two days"
 activities:

@@ -1,0 +1,14 @@
+<%= @supervisor.name %>
+<div class="container">
+  <table border="1">
+    <tr>
+      <% @user_tasks.each do |user_task| %>
+        <td>
+          <%= t("report.daily", task_name: user_task.task_name,
+            subject_name: user_task.user_subject.course_subject.subject_name,
+            course_name: user_task.user_subject.course_subject.course_name) %>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+</div>

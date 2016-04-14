@@ -6,6 +6,12 @@ class SupervisorMailer < ApplicationMailer
     mail to: @supervisor.email, subject: Settings.email_subject.last_day_month
   end
 
+  def last_day_summary supervisor, user_tasks
+    @supervisor = supervisor
+    @user_tasks = user_tasks
+    mail to: @supervisor.email, subject: Settings.email_subject.last_day
+  end
+
   def notify_course_finish_in_two_days course
     @course = course
     @supervisor = @course.user
