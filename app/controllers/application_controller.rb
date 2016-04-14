@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     namespace = controller_path.split("/").first
     Ability.new current_user, namespace
   end
+
+  def after_sign_in_path_for resource
+    current_user.supervisor? ? admin_root_path : user_path(current_user)
+  end
 end
