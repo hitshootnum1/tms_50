@@ -4,14 +4,31 @@
   <ul class="list-inline">
     <h3><%= "#{@course.name} #{t "courses.subjects"}" %></h3>
     <p>
-      <%= pluralize @course.users.count, t("user_courses.users") %>
-      <%= t "user_courses.in_course" %>
+      <%= "#{t "user_courses.users_in_course"}
+        #{pluralize @course.users.count, t("user_courses.users")}" %>
     </p><br>
     <% @course.course_subjects.each do |course_subject| %>
-      <li>
-        <%= link_to course_subject.subject.name, course_subject,
-          class: "btn btn-lg btn-default" %>
-      </li>
+      <% if course_subject.started? %>
+        <% if find_user_subject_by_user_id(course_subject, current_user).
+          started? %>
+          <li>
+            <%= link_to course_subject.subject.name, course_subject,
+              class: "btn btn-lg btn-success" %>
+          </li>
+        <% else %>
+          <li>
+            <p class="btn btn-lg btn-default subject-finished">
+              <%= course_subject.subject.name %>
+            </p>
+          </li>
+        <% end %>
+      <% else %>
+        <li>
+          <p class="btn btn-lg btn-default subject-not-started">
+            <%= course_subject.subject.name %>
+          </p>
+        </li>
+      <% end %>
     <% end %>
     <hr>
     <aside>

@@ -1,0 +1,7 @@
+<% if current_user.supervisor? %>
+  <li><%= link_to t("layouts.users"), admin_users_path %></li>
+  <li><%= link_to t("layouts.courses"), admin_courses_path %></li>
+  <li><%= link_to t("layouts.subjects"), admin_subjects_path %></li>
+<% else %>
+  <li><%= link_to t("layouts.courses"), user_courses_path %></li>
+<% end %>

@@ -27,25 +27,36 @@
     <hr>
     <ul class="list-unstyled">
       <% @course.course_subjects.each do |course_subject| %>
-        <li class="">
-          <%= course_subject.subject_name %>
-          <%= link_to t("course_subject.custom_tasks"),
-            edit_admin_course_subject_path(course_subject),
-            class: "btn btn-primary btn-xs" %>
-          <% if @course.started? && !course_subject.started? %>
-            <%= form_for [:admin, course_subject], method: :patch do |f| %>
-              <%= f.hidden_field :status, value: :started %>
-              <%= f.submit t("courses.start_subject"),
-                class: "btn btn-success btn-xs" %>
+        <li>
+          <div class="col-md-4">
+            <%= course_subject.subject_name %>
+          </div>
+          <div class="col-md-4">
+            <%= link_to t("courses.custom_tasks"),
+              edit_admin_course_subject_path(course_subject),
+              class: "btn btn-default btn-xs" %>
+          </div>
+          <div class="col-md-4">
+            <% if @course.started? && !course_subject.started? %>
+              <%= form_for [:admin, course_subject], method: :patch do |f| %>
+                <%= f.hidden_field :status, value: :started %>
+                <p>
+                  <%= f.submit t("courses.start_subject"),
+                    class: "btn btn-success btn-xs" %>
+                </p>
+              <% end %>
+            <% elsif @course.started? && course_subject.started? %>
+              <p>
+                <%= link_to t("courses.start_subject"), "",
+                  class: "btn btn-default btn-xs subject-started" %>
+              </p>
+            <% else %>
+              <p>
+                <%= link_to t("courses.start_subject"), "",
+                  class: "btn btn-default btn-xs course-not-started" %>
+              </p>
             <% end %>
-          <% elsif @course.started? && course_subject.started? %>
-            <%= link_to t("courses.start_subject"), "",
-              class: "btn btn-default btn-xs subject-not-started" %>
-          <% else %>
-            <%= link_to t("courses.start_subject"), "",
-              class: "btn btn-default btn-xs course-not-started" %>
-          <% end %>
-          <hr>
+          </div>
         </li>
       <% end %>
     </ul>

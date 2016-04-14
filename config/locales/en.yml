@@ -12,6 +12,9 @@ en:
     log_in: "Login"
     log_out: "Logout"
     home: "Home"
+    courses: "Courses"
+    subjects: "Subjects"
+    users: "Users"
   user:
     string: "User"
     name: "Name: %{name}"
@@ -66,6 +69,7 @@ en:
     started: "This course has been started"
     start: "Start this course"
     start_subject: "Start"
+    custom_tasks: "Custom task"
   subjects:
     start: "started subject"
     updated_subject: " updated subject "
@@ -73,7 +77,7 @@ en:
     custom_tasks: "Custom tasks"
     finish: "Finish"
     open: "Open"
-    status: "Status: %{status}"
+    status: "Status: "
     finish_error: "Subject not finished because system error"
     finish_success: "Subject has finished"
     all_tasks_must_closed: "Subject not finished because all tasks must be closed"
@@ -133,3 +137,7 @@ en:
   mailer:
     assign: "Assigned trainee to"
     remove: "Removed trainee from"
+  user_courses:
+    all_courses: "All courses"
+    users: "user"
+    users_in_course: "Users in this course: "

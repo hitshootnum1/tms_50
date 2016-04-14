@@ -1,6 +1,5 @@
 class UserSubjectsController < ApplicationController
   load_and_authorize_resource
-  before_action :user_subject_params, only: :update
 
   def update
     if @user_subject.update_attributes user_subject_params
@@ -12,7 +11,7 @@ class UserSubjectsController < ApplicationController
         t("subjects.finish_error")
     end
     respond_to do |format|
-      format.html {redirect_to course_subject_path(@user_subject.course_subject)}
+      format.html {redirect_to course_path @user_subject.course_subject}
       format.js
     end
   end

@@ -1,16 +1,14 @@
 <%= form_for @user_subject do |f| %>
-  <table class="table table-hover">
+  <ul class="list-unstyled">
+    <h3>Tasks</h3>
+    <hr>
     <%= f.collection_check_boxes :course_subject_task_ids,
       @course_subject_tasks, :id, :name_with_initial do |b| %>
-      <tr>
-        <td>
-          <%= b.label {b.check_box + "  " + b.text} %>
-          <br/>
-        </td>
-      </tr>
+      <li>
+        <%= b.label {b.check_box + "  " + b.text} %><br/>
+      </li>
     <% end %>
-  </table>
-  </div>
+  </ul>
   <%= hidden_field_tag :update, true %>
   <div class="col-md-12">
     <div class="col-md-4 col-md-offset-4">
@@ -31,5 +29,16 @@
         <% end %>
       </p>
     </div>
+
+  <div class="col-md-3 col-md-offset-3">
+    <%= f.submit t("subject.update"), class: "btn btn-default btn-block" %>
   </div>
 <% end %>
+
+<div class="col-md-3">
+  <%= form_for @user_subject do |f| %>
+    <%= f.hidden_field :status, value: :finished %>
+    <%= f.submit t("subject.finish"), class: "btn btn-default btn-block" %>
+  <% end %>
+</div>
+

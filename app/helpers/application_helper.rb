@@ -21,6 +21,10 @@ module ApplicationHelper
     user_subject.user_tasks.find_by course_subject_task_id: course_subject_task.id
   end
 
+  def find_user_subject_by_user_id course_subject, user_id
+    course_subject.user_subjects.find_by user_id: user_id
+  end
+
   def show_status object
     object.status.nil? ? Settings.status.wait : Settings.status.send("#{object.status}")
   end
