@@ -1,32 +1,15 @@
 <% provide :title, @course_subject.subject_name %>
 
-<div class="col-md-2">
-  <table class="table table-hover">
-    <tr>
-      <div class= "btn btn-default">
-        <h1>
-          <%= @course_subject.subject_name %>
-        </h1>
-      </div>
-    </tr>
-    <tr>
-      <div class="subject-status">
-        <%= render "subject_status" %>
-      </div>
-    </tr>
-  </table>
+<div class="col-md-4 panel panel-default">
+  <h3>
+    <%= @course_subject.subject_name %>
+  </h3>
+  <%= "#{t "subjects.status"} #{@user_subject.status}" %>
+  <hr>
+  <h3><%= t "subjects.description" %></h3>
+  <p><%= @course_subject.subject_description %></p>
 </div>
 
-<div class="col-md-10">
-  <div class="update-tasks">
-    <%= render "update_tasks" %>
-  </div>
-
-</div>
-<div class="col-md-10 col-md-offset-1">
-  <div class= "col-md-12 panel panel-default">
-    <p>
-      <h4><%= @course_subject.subject_description %></h4><br>
-    </p>
-  </div>
+<div class="col-md-7 col-md-offset-1 panel panel-default">
+  <%= render "update_tasks" %>
 </div>

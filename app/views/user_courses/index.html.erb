@@ -5,10 +5,18 @@
   <br>
   <ul class="list-inline">
     <% current_user.user_courses.each do |user_course| %>
-      <li>
-        <%= link_to user_course.course.name, user_course.course,
-          class: "btn btn-lg btn-default" %>
-      </li>
+      <% if user_course.course.started? %>
+        <li>
+          <%= link_to user_course.course.name, user_course.course,
+            class: "btn btn-lg btn-success" %>
+        </li>
+      <% else %>
+        <li>
+          <p class="btn btn-lg btn-default course-not-started">
+            <%= user_course.course.name %>
+          </p>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>

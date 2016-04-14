@@ -21,4 +21,20 @@ $(document).ready(function(){
   setTimeout(function(){
     $("#flash").slideUp("slow");
   }, 1500);
+
+  $(".course-not-started").on("click", function(){
+    alert("This course is not started!");
+  });
+
+  $(".subject-not-started").on("click", function(){
+    alert("This subject is not started");
+  });
+
+  $(".subject-finished").on("click", function(){
+    alert("This subject has been finished");
+  });
+
+  $(".subject-started").on("click", function(){
+    alert("This subject has been started");
+  });
 })
