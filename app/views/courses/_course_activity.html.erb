@@ -1,6 +1,6 @@
 <% @activities.each do |activity| %>
   <% if activity.trackable && activity.content &&
-    activity.owner == current_user %>
+    activity.target_id == @course.id %>
     <h5>
       <%= link_to activity.owner.name, activity.owner if activity.owner %>
       <%= activity.content %>

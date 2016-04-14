@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+  include PublicActivity::Model
 
   before_update :init_user_subjects
   after_update :load_user_subjects

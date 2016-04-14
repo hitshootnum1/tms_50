@@ -1,4 +1,6 @@
 class CourseSubject < ActiveRecord::Base
+  include PublicActivity::Model
+
   has_many :course_subject_tasks, dependent: :destroy
   has_many :cs_tasks, class_name: CourseSubjectTask.to_s
   has_many :user_subjects, dependent: :destroy
