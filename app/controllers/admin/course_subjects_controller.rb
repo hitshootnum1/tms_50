@@ -5,12 +5,12 @@ class Admin::CourseSubjectsController < ApplicationController
   def update
     if @course_subject.update_attributes course_subject_params
       create_activity
-      flash[:success] = t "course_subject.updated"
+      flash[:success] = t "course_subject.started"
     else
-      flash[:warning] = t "course_subject.update_error"
+      flash[:warning] = t "course_subject.start_error"
     end
     respond_to do |format|
-      format.html {redirect_to edit_admin_course_subject_path(@course_subject)}
+      format.html {redirect_to admin_course_path(@course_subject.course)}
       format.js
     end
   end
