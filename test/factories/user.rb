@@ -4,7 +4,7 @@ FactoryGirl.define do
     email "admin@admin.com"
     password "foobar"
     password_confirmation "foobar"
-    role 1
+    role User.roles[:supervisor]
   end
 
   factory :user do
@@ -14,10 +14,10 @@ FactoryGirl.define do
     trait :trainee do
       name "user-default"
       email "user@user.com"
-      role 0
+      role User.roles[:trainee]
     end
     trait :supervisor do
-      role 1
+      role User.roles[:supervisor]
       name "admin"
       email "admin@admin.com"
     end

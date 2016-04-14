@@ -16,6 +16,7 @@ en:
     subjects: "Subjects"
     users: "Users"
   user:
+    all: "All User"
     string: "User"
     name: "Name: %{name}"
     email: "Email: %{email}"
