@@ -24,4 +24,8 @@ module ApplicationHelper
   def show_status object
     object.status.nil? ? Settings.status.wait : Settings.status.send("#{object.status}")
   end
+
+  def find_user_subjects user, course
+    UserSubject.find_by_course user.user_subjects, course
+  end
 end
