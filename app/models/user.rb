@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: [:trainee, :supervisor]
+  enum role: [:guest, :trainee, :supervisor]
 
   has_many :user_courses, dependent: :destroy
   has_many :user_subjects, dependent: :destroy
@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
   before_save :add_default_role
   scope :supervisor_has_course, ->{where id: Course.pluck(:user_id)}
+
+  def is? user
+    self == user
+  end
 
   private
   def add_default_role

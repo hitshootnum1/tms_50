@@ -1,5 +1,4 @@
 <%= provide :title, @user.name %>
-
 <div class="row">
   <div class= "col-md-4 user-profile">
     <div class="row">
@@ -7,30 +6,32 @@
       <hr>
       <h4><%= t("user.email", email: @user.email) %></h4>
     </div>
-    <div class="row">
-      <h3>
-        <%= t "user.activities" %>
-      </h3>
-      <hr>
-      <div class="activity">
-        <%= render "activity" %>
+    <% if current_user.is? @user %>
+      <div class="row">
+        <h3>
+          <%= t "user.activities" %>
+        </h3>
+        <hr>
+        <div class="activity">
+          <%= render "activity" %>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="col-md-7 panel panel-default ">
-    <% if @course %>
-      <h3><%= t "courses.name_is", name: @course.name %></h3>
-      <h4><%= t "date.start_is", start: @course.start_date %></h4>
-      <h4><%= t "date.end_is", end: @course.end_date %></h4>
-      <br>
-      <h4>
-        <%= t "subject.number_is", number: @course.course_subjects.count %>
-      </h4>
-      <% find_user_subjects(@user, @course).each do |user_subject| %>
-        <%= render "subject", user_subject: user_subject %>
-      <% end %>
     <% end %>
   </div>
+  <% if current_user.is? @user %>
+    <div class="col-md-7 panel panel-default ">
+      <% if @course %>
+        <h3><%= t "courses.name_is", name: @course.name %></h3>
+        <h4><%= t "date.start_is", start: @course.start_date %></h4>
+        <h4><%= t "date.end_is", end: @course.end_date %></h4>
+        <br>
+        <h4>
+          <%= t "subject.number_is", number: @course.course_subjects.count %>
+        </h4>
+        <% find_user_subjects(@user, @course).each do |user_subject| %>
+          <%= render "subject", user_subject: user_subject %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
-
-

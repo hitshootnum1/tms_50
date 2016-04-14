@@ -2,8 +2,7 @@
   <ol class="user-show-subject">
     <hr>
     <center>
-      <h4><%= user_subject.course_subject.subject.id %></h4>
-      <h4><%= user_subject.course_subject.id %></h4>
+      <h4><%= user_subject.course_subject.subject.name %></h4>
     </center>
     <li>
       <% user_subject.course_subject.course_subject_tasks.each do

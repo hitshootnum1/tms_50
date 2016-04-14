@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
-  resources :users, only: :show
+  resources :users, only: [:index, :show]
   resources :user_courses, only: :index
   resources :courses, only: :show
   resources :course_subjects, only: :show
