@@ -1,6 +1,6 @@
 <%= provide :title, @course.name %>
 
-<div>
+<div class="col-md-3 panel panel-default">
   <ul class="list-inline">
     <h3><%= "#{@course.name} #{t "courses.subjects"}" %></h3>
     <p>
@@ -30,14 +30,22 @@
         </li>
       <% end %>
     <% end %>
-    <hr>
-    <aside>
-      <h3><%= t "courses.description" %></h3><br>
-      <p><%= @course.description %></p>
-    </aside>
-    <aside>
-      <h3><%= t "courses.activites" %></h3><br>
-      <%= render "course_activity" %>
-    </aside>
   </ul>
+  <hr>
+  <aside>
+    <h3><%= t "courses.description" %></h3><br>
+    <p><%= @course.description %></p>
+  </aside>
+</div>
+<div class="col-md-5 col-md-offset-1 panel panel-default">
+  <aside>
+    <h3><%= t "courses.activites" %></h3><br>
+    <%= render "course_activity" %>
+  </aside>
+</div>
+<div class="col-md-2 col-md-offset-1 panel panel-default">
+  <aside>
+    <h3><%= t "courses.members" %></h3><br>
+    <%= render "course_member" %>
+  </aside>
 </div>
