@@ -1,18 +1,36 @@
 <%= provide :title, @user.name %>
 
-<div class="col-md-3 panel panel-default">
-  <h4><%= t("user.name", name: @user.name) %></h4>
-  <hr>
-  <h4><%= t("user.email", email: @user.email) %></h4>
-</div>
-
-<div class="col-md-8 col-md-offset-1 panel panel-default">
-  <h3>
-    <%= t "user.activities" %>
-  </h3>
-  <hr>
-  <div class="activity">
-    <%= render "activity" %>
+<div class="row">
+  <div class= "col-md-4 user-profile">
+    <div class="row">
+      <h4><%= t("user.name", name: @user.name) %></h4>
+      <hr>
+      <h4><%= t("user.email", email: @user.email) %></h4>
+    </div>
+    <div class="row">
+      <h3>
+        <%= t "user.activities" %>
+      </h3>
+      <hr>
+      <div class="activity">
+        <%= render "activity" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7 panel panel-default ">
+    <% if @course %>
+      <h3><%= t "courses.name_is", name: @course.name %></h3>
+      <h4><%= t "date.start_is", start: @course.start_date %></h4>
+      <h4><%= t "date.end_is", end: @course.end_date %></h4>
+      <br>
+      <h4>
+        <%= t "subject.number_is", number: @course.course_subjects.count %>
+      </h4>
+      <% @user.user_subjects.each do |user_subject| %>
+        <%= render "subject", user_subject: user_subject %>
+      <% end %>
+    <% end %>
   </div>
 </div>
+
 

@@ -23,7 +23,7 @@
   <div class="col-md-12">
     <div class="col-md-4 col-md-offset-4">
       <p>
-        <% if @user_subject.not_finish? %>
+        <% if @user_subject.finished? %>
           <%= link_to t("subject.finish"),
             user_subject_path((@user_subject),
             "user_subject[status]": "Finished"), method: :put,

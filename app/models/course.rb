@@ -70,7 +70,11 @@ class Course < ActiveRecord::Base
       user.update_attributes start_course: true unless user.start_course
     end
   end
-
+  class << self
+    def find_active_course courses
+      courses.where.not(status: Course.statuses[:finished]).first
+    end
+  end
   private
   def send_email_notify_course_finish
     SupervisorMailer.delay(
