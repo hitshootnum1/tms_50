@@ -26,7 +26,7 @@
       <h4>
         <%= t "subject.number_is", number: @course.course_subjects.count %>
       </h4>
-      <% @user.user_subjects.each do |user_subject| %>
+      <% find_user_subjects(@user, @course).each do |user_subject| %>
         <%= render "subject", user_subject: user_subject %>
       <% end %>
     <% end %>

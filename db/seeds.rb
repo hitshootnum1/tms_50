@@ -6,7 +6,8 @@ admin = FactoryGirl.create :admin
   FactoryGirl.create :user, :trainee, name: "user#{n+1}", email: "user#{n+1}@user.com"
 end
 
-FactoryGirl.create :course, name: "Course-1", description: "Traning course", user_id: 1
+FactoryGirl.create :course, name: "Course-1", description: "Traning course",
+  user_id: 1, status: 1
 
 5.times do |n|
   FactoryGirl.create :subject, name: "Subject-#{n+1}", description: "Traning subject"

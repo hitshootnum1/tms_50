@@ -1,9 +1,10 @@
 <%= provide :title, @course_subject.course_name %>
 
 <div class="col-md-3 panel panel-default">
-  <h3><%= @course_subject.course_name %></h3>
+  <h3><%= link_to @course_subject.course_name, admin_course_path(@course_subject.course) %></h3>
   <hr>
-  <h3><%= @course_subject.subject_name %></h3>
+  <h3><%= link_to @course_subject.subject_name,
+    admin_subjects_path(id: @course_subject.subject) %></h3>
 </div>
 
 <div class="col-md-8 col-md-offset-1 panel panel-default">

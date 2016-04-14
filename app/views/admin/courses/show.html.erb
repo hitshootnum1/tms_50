@@ -11,7 +11,7 @@
         <p>
           <%= form_for [:admin, @course] do |f| %>
             <%= f.hidden_field :status, value: :started %>
-            <%= f.submit t("courses.start"), class: "btn btn-default" %>
+            <%= f.submit t("courses.start"), class: "btn btn-success" %>
           <% end %>
         </p>
       <% end %>
@@ -27,18 +27,26 @@
     <hr>
     <ul class="list-unstyled">
       <% @course.course_subjects.each do |course_subject| %>
-        <li class="col-md-6"><%= course_subject.subject_name %></li>
-        <% if @course.started? && !course_subject.started? %>
-          <%= form_for [:admin, course_subject], method: :patch do |f| %>
-            <li class="col-md-6">
+        <li class="">
+          <%= course_subject.subject_name %>
+          <%= link_to t("course_subject.custom_tasks"),
+            edit_admin_course_subject_path(course_subject),
+            class: "btn btn-primary btn-xs" %>
+          <% if @course.started? && !course_subject.started? %>
+            <%= form_for [:admin, course_subject], method: :patch do |f| %>
               <%= f.hidden_field :status, value: :started %>
               <%= f.submit t("courses.start_subject"),
-                class: "btn btn-default" %>
-            </li>
+                class: "btn btn-success btn-xs" %>
+            <% end %>
+          <% elsif @course.started? && course_subject.started? %>
+            <%= link_to t("courses.start_subject"), "",
+              class: "btn btn-default btn-xs subject-not-started" %>
+          <% else %>
+            <%= link_to t("courses.start_subject"), "",
+              class: "btn btn-default btn-xs course-not-started" %>
           <% end %>
-        <% else %>
-          <li class="col-md-6"><%= t "courses.start_subject" %></li>
-        <% end %>
+          <hr>
+        </li>
       <% end %>
     </ul>
   </div>
@@ -56,7 +64,8 @@
     </ul>
     <div class="col-md-4 col-md-offset-4">
       <%= f.submit t("courses.assign"),
-        class: "btn btn-block btn-default" %>
+        class: "btn btn-block btn-success" %>
+      <h1></h1>
     </div>
   <% end %>
 </div>

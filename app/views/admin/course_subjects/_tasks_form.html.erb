@@ -2,7 +2,7 @@
   <ul class="list-unstyled col-md-offset-1">
     <%= f.collection_check_boxes :task_ids, @course_subject.subject.tasks,
       :id, :name do |b| %>
-      <li><%= b.label {b.check_box + b.text} %></li>
+      <li><%= b.label {b.check_box + "  " + b.text} %><hr></li>
     <% end %>
   </ul>
   <div class="col-md-4 col-md-offset-4">
