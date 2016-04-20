@@ -31,17 +31,20 @@ group :development,:test do
   gem "factory_girl_rails"
   gem "pry"
   gem "sqlite3", "1.3.9"
-  gem "byebug", "3.4.0"
+  gem "byebug"
   gem "web-console", "2.0.0.beta3"
   gem "spring", "1.1.3"
-  gem "rspec-rails"
-  gem "simplecov", require: false
 end
 
 group :test do
+  gem "rspec"
+  gem "rspec-rails"
   gem "minitest-reporters", "1.0.5"
   gem "mini_backtrace", "0.1.3"
   gem "guard-minitest", "2.3.1"
+  gem "rspec-collection_matchers"
+  gem "shoulda-matchers"
+  gem "shoulda-callback-matchers"
   gem "simplecov", require: false
 end
 
