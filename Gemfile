@@ -27,7 +27,6 @@ gem "daemons"
 gem "public_activity"
 
 group :development,:test do
-  gem "rspec-rails"
   gem "factory_girl_rails"
   gem "pry"
   gem "sqlite3", "1.3.9"
@@ -46,6 +45,7 @@ group :test do
   gem "shoulda-matchers"
   gem "shoulda-callback-matchers"
   gem "simplecov", require: false
+  gem "capybara"
 end
 
 group :production do
