@@ -27,6 +27,7 @@ gem "daemons"
 gem "public_activity"
 
 group :development,:test do
+  gem "rspec-rails"
   gem "factory_girl_rails"
   gem "pry"
   gem "sqlite3", "1.3.9"
@@ -41,6 +42,7 @@ group :test do
   gem "minitest-reporters", "1.0.5"
   gem "mini_backtrace", "0.1.3"
   gem "guard-minitest", "2.3.1"
+  gem "simplecov", require: false
 end
 
 group :production do

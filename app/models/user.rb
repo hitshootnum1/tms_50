@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
 
   private
   def add_default_role
-    self.role.trainee! if self.role.nil?
+    self.trainee! if self.guest?
   end
 end
